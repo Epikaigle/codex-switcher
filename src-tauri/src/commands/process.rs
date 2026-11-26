@@ -418,7 +418,7 @@ fn find_codex_processes() -> anyhow::Result<(Vec<u32>, usize)> {
                     &command,
                     process_name,
                     bundle_identifier.as_deref(),
-                );
+                ) || lowercase_command.contains("codex-desktop") || lowercase_command.contains("codex-app/electron");
 
                 if !is_codex_cli && !is_codex_desktop {
                     continue;
